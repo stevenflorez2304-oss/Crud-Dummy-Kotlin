@@ -9,7 +9,7 @@ data class ProductX(
     @param:Json(name = "availabilityStatus")
     val availabilityStatus: String,
     @param:Json(name = "brand")
-    val brand: String,
+    val brand: String?,
     @param:Json(name = "category")
     val category: String,
     @param:Json(name = "description")

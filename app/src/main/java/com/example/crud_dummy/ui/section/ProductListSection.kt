@@ -1,6 +1,5 @@
 package com.example.crud_dummy.ui.section
 
-
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -13,6 +12,8 @@ import com.example.crud_dummy.ui.composable.ProductCard
 @Composable
 fun ProductListSection(
     products: List<ProductModel>,
+    onEditProduct: (ProductModel) -> Unit,
+    onDeleteProduct: (ProductModel) -> Unit,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(
@@ -20,7 +21,11 @@ fun ProductListSection(
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         items(products, key = { it.id }) { product ->
-            ProductCard(product = product)
+            ProductCard(
+                product = product,
+                onEditClick = onEditProduct,
+                onDeleteClick = onDeleteProduct
+            )
         }
     }
 }
